@@ -15,14 +15,14 @@ let listaImagenes = [
 	"https://pbs.twimg.com/media/DYp22-JXUAEHPKX.jpg"
 ];
 
-export const Personaje = (/*{ history, location, match, ...props }*/ props) => {
+export const Planeta = (/*{ history, location, match, ...props }*/ props) => {
 	const [personajes, setPersonajes] = useState({
 		nombre: "",
-		anonacimiento: "",
-		altura: "",
-		peso: "",
+		diametro: "",
+		poblacion: "",
+		terreno: "",
 		descripcion: "",
-		genero: ""
+		clima: ""
 	});
 	// const { new_id } = match.params;
 	const new_id = useParams();
@@ -32,19 +32,20 @@ export const Personaje = (/*{ history, location, match, ...props }*/ props) => {
 
 	useEffect(() => {
 		// //Get Data
-		fetch("https://www.swapi.tech/api/people/" + new_id.new_id) //`https://www.swapi.tech/api/people/${new_id}`)
+		fetch("https://www.swapi.tech/api/planets/" + new_id.new_id) //`https://www.swapi.tech/api/people/${new_id}`)
 			.then(res => res.json())
 			.then(data => {
-				setPersonajes({
-					nombre: data.result.properties.name,
-					anonacimiento: data.result.properties.birth_year,
-					altura: data.result.properties.height,
-					peso: data.result.properties.mass,
-					descripcion: data.result.description,
-					genero: data.result.properties.gender
-				});
+				console.log(data);
+				// setPersonajes({
+				// 	nombre: data.result.properties.name,
+				// 	diametro: data.result.properties.diameter,
+				// 	poblacion: data.result.properties.population,
+				// 	terreno: data.result.properties.terrain,
+				// 	descripcion: data.result.description,
+				// 	clima: data.result.properties.climate
+				// });
 			})
-			.catch(err => console.error(err));
+			.catch(err => (console.error(err), console.log("Error en useEffect")));
 	}, []);
 
 	return (

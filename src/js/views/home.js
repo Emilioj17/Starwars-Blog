@@ -1,6 +1,5 @@
 import React from "react";
 import "../../styles/home.scss";
-
 import { Heroe } from "../component/heroe";
 
 export const Home = () => (

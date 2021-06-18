@@ -8,3 +8,8 @@
 	height: 80vh;
 	overflow-y: scroll;
 }
+
+img {
+	width: 400px;
+	height: 200px;
+}
