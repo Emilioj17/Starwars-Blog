@@ -7,12 +7,12 @@ export const Heroe = () => {
 	const [jumbo, setJumbo] = useState(true);
 
 	const handler = () => {
-		setInterval(() => setCount(false), 20000);
+		setInterval(() => setCount(false), 5000);
 	};
 
 	const Jumbotron = () => {
 		return (
-			<div className="jumbotron" style={jumbo ? { display: "" } : { display: "none" }}>
+			<div className="jumbotron">
 				<h1 className="display-4">Hello, world!</h1>
 				<p className="lead">
 					This is a simple hero unit, a simple jumbotron-style component for calling extra attention to
@@ -32,9 +32,9 @@ export const Heroe = () => {
 	return (
 		<>
 			<div className="fade" style={count ? { display: "" } : { display: "none" }} />
-			<section className="star-wars" onMouseOver={handler} style={count ? { display: "" } : { display: "none" }}>
-				<div className="crawl">
-					<div className="title">
+			<section className="star-wars" onMouseMove={handler} style={count ? { display: "" } : { display: "none" }}>
+				<div className="crawl" onMouseMove={handler}>
+					<div className="title" onMouseMove={handler}>
 						<p>Episode IV</p>
 						<h1>A New Hope</h1>
 					</div>
@@ -78,7 +78,7 @@ export const Heroe = () => {
 				</div>
 			</section>
 			<div>
-				<div className="jumbotron" style={jumbo ? { display: "" } : { display: "none" }}>
+				<div className="jumbotron">
 					<br />
 					<br />
 					<br />
